@@ -4,11 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoalPoint - Клуб Настольного Футбола</title>
+    <title>GoalPoint - Клуб Настольного Футбола | Лучший клуб кикера в Москве</title>
+    <meta name="description"
+        content="GoalPoint - профессиональный клуб настольного футбола в Москве. Турниры, тренировки, аренда столов Tornado и Leonhart. Присоединяйтесь к сообществу любителей кикера!">
+    <meta name="keywords" content="кикер, настольный футбол, foosball, клуб москва, tornado, leonhart, турниры">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goalpoint-club.ru/">
+    <meta property="og:title" content="GoalPoint - Клуб Настольного Футбола">
+    <meta property="og:description"
+        content="Центр притяжения для всех любителей настольного футбола. Турниры, тренировки, профессиональное оборудование.">
+    <meta property="og:image" content="images/hero_bg_1763661679321.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://goalpoint-club.ru/">
+    <meta property="twitter:title" content="GoalPoint - Клуб Настольного Футбола">
+    <meta property="twitter:description" content="Центр притяжения для всех любителей настольного футбола">
+    <meta property="twitter:image" content="images/hero_bg_1763661679321.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Oswald:wght@400;600;700&display=swap"
         rel="stylesheet">
     <style>
         /* --- ПЕРЕМЕННЫЕ И СБРОС --- */
@@ -25,6 +43,9 @@
             --white: #ffffff;
             --text-color: #333;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
         * {
@@ -510,11 +531,498 @@
 
         /* --- FOOTER --- */
         footer {
-            background-color: var(--dark-grey);
+            background: linear-gradient(135deg, var(--dark-grey), var(--medium-grey));
             color: var(--white);
-            padding: 30px 0;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+        }
+
+        .footer-col p,
+        .footer-col a {
+            margin-bottom: 10px;
+            color: #ccc;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--neon-green);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
             text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(46, 204, 113, 0.4);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(57, 255, 20, 0.6);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .float-effect:hover {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* --- ДОСТИЖЕНИЯ --- */
+        #achievements {
+            background: linear-gradient(135deg, var(--dark-blue), var(--medium-grey));
+            color: var(--white);
+        }
+
+        #achievements .section-title {
+            color: var(--white);
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .achievement-box {
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .achievement-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--neon-green);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+        }
+
+        .achievement-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .achievement-label {
+            font-size: 1.1rem;
+            color: #ddd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- ОТЗЫВЫ --- */
+        #testimonials {
+            background-color: var(--light-grey);
+        }
+
+        .testimonials-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            margin: 0 10px;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary-green);
+            overflow: hidden;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--dark-grey);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: var(--primary-green);
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- ПРАЙС --- */
+        #pricing {
+            background-color: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-green);
+        }
+
+        .pricing-card.popular {
+            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.1);
+        }
+
+        .pricing-card.popular:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 15px 50px rgba(57, 255, 20, 0.3);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gradient);
+            color: var(--dark-blue);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-grey);
+        }
+
+        .pricing-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .pricing-price span {
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* --- FAQ --- */
+        #faq {
+            background-color: var(--light-grey);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-grey);
+        }
+
+        .faq-question:hover {
+            background-color: var(--light-grey);
+        }
+
+        .faq-question.active {
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 30px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .faq-answer.show {
+            max-height: 500px;
+            padding: 20px 30px 30px;
+        }
+
+        /* --- PROGRESS BAR --- */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            z-index: 9999;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        /* --- BACK TO TOP --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(57, 255, 20, 0.6);
+        }
+
+        /* --- LIGHTBOX --- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary-green);
+            transform: rotate(90deg);
         }
 
         /* --- МЕДИА ЗАПРОСЫ --- */
@@ -593,9 +1101,13 @@
             <a href="#" class="logo">Goal<span>Point</span></a>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">О клубе</a></li>
+                <li><a href="#achievements" class="nav-link">Достижения</a></li>
                 <li><a href="#tournaments" class="nav-link">Турниры</a></li>
+                <li><a href="#testimonials" class="nav-link">Отзывы</a></li>
+                <li><a href="#pricing" class="nav-link">Прайс</a></li>
                 <li><a href="#training" class="nav-link">Тренировки</a></li>
                 <li><a href="#gallery" class="nav-link">Галерея</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contact" class="nav-link">Контакты</a></li>
             </ul>
             <div class="hamburger">
@@ -611,7 +1123,7 @@
         <div class="hero-content reveal">
             <h1 class="hero-title">Вращай. Забивай. Побеждай.</h1>
             <p class="hero-subtitle">Центр притяжения для всех любителей настольного футбола</p>
-            <a href="#training" class="btn">Записаться на игру</a>
+            <a href="#training" class="btn btn-pulse">Записаться на игру</a>
         </div>
     </section>
 
@@ -631,7 +1143,37 @@
                     <p>Присоединяйся к сообществу, где каждый гол вызывает бурю эмоций!</p>
                 </div>
                 <div class="about-image">
-                    <img src="images/about_img_1763661688025.png" alt="Дружеская атмосфера в клубе GoalPoint">
+                    <img src="images/about_img_1763661688025.png" loading="lazy"
+                        alt="Дружеская атмосфера в клубе GoalPoint">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Достижения -->
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title reveal">Наши достижения</h2>
+            <div class="achievement-grid reveal">
+                <div class="achievement-box">
+                    <div class="achievement-icon">🏆</div>
+                    <div class="achievement-number" data-target="500">0</div>
+                    <div class="achievement-label">Игроков</div>
+                </div>
+                <div class="achievement-box">
+                    <div class="achievement-icon">⚡</div>
+                    <div class="achievement-number" data-target="100">0</div>
+                    <div class="achievement-label">Турниров</div>
+                </div>
+                <div class="achievement-box">
+                    <div class="achievement-icon">🎯</div>
+                    <div class="achievement-number" data-target="10">0</div>
+                    <div class="achievement-label">Лет опыта</div>
+                </div>
+                <div class="achievement-box">
+                    <div class="achievement-icon">⭐</div>
+                    <div class="achievement-number" data-target="12">0</div>
+                    <div class="achievement-label">Столов</div>
                 </div>
             </div>
         </div>
@@ -643,7 +1185,8 @@
             <h2 class="section-title reveal">Ближайшие турниры</h2>
             <div class="tournament-grid reveal">
                 <div class="tournament-card">
-                    <div class="t-card-img"><img src="images/tourn_novice_1763661694797.png" alt="Турнир для новичков">
+                    <div class="t-card-img"><img src="images/tourn_novice_1763661694797.png" loading="lazy"
+                            alt="Турнир для новичков">
                     </div>
                     <div class="t-card-body">
                         <span class="t-date">Каждый Вторник, 19:30</span>
@@ -654,7 +1197,8 @@
                     </div>
                 </div>
                 <div class="tournament-card">
-                    <div class="t-card-img"><img src="images/tourn_pro_1763661702200.png" alt="Профессиональный турнир">
+                    <div class="t-card-img"><img src="images/tourn_pro_1763661702200.png" loading="lazy"
+                            alt="Профессиональный турнир">
                     </div>
                     <div class="t-card-body">
                         <span class="t-date">Каждая Пятница, 20:00</span>
@@ -665,7 +1209,8 @@
                     </div>
                 </div>
                 <div class="tournament-card">
-                    <div class="t-card-img"><img src="images/tourn_cup_1763661726179.png" alt="Кубок выходного дня">
+                    <div class="t-card-img"><img src="images/tourn_cup_1763661726179.png" loading="lazy"
+                            alt="Кубок выходного дня">
                     </div>
                     <div class="t-card-body">
                         <span class="t-date">Ближайшая суббота</span>
@@ -674,6 +1219,41 @@
                             забери главный приз.</p>
                         <a href="#contact" class="btn">Участвовать</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title reveal">Что говорят наши игроки</h2>
+            <div class="testimonials-container reveal">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">«GoalPoint — это не просто клуб, это второй дом! Здесь я научился
+                        играть, нашел друзей и теперь участвую в турнирах. Профессиональные столы Tornado просто огонь!»
+                    </p>
+                    <div class="testimonial-author">Алексей Петров</div>
+                    <div class="testimonial-role">Регулярный игрок</div>
+                </div>
+            </div>
+            <div class="testimonials-container reveal" style="margin-top: 30px;">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">«Отличное место для корпоративов! Провели тимбилдинг для 25 человек -
+                        все были в восторге. Организация на высшем уровне, VIP-зона супер комфортная!»</p>
+                    <div class="testimonial-author">Мария Иванова</div>
+                    <div class="testimonial-role">HR-менеджер</div>
+                </div>
+            </div>
+            <div class="testimonials-container reveal" style="margin-top: 30px;">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">«Тренер Дмитрий - настоящий профи! За 2 месяца занятий моя игра вышла на
+                        новый уровень. Теперь выигрываю даже у опытных игроков. Спасибо GoalPoint!»</p>
+                    <div class="testimonial-author">Сергей Козлов</div>
+                    <div class="testimonial-role">Участник турниров</div>
                 </div>
             </div>
         </div>
@@ -714,18 +1294,123 @@
         </div>
     </section>
 
+    <!-- Прайс -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title reveal">Тарифы и цены</h2>
+            <div class="pricing-grid reveal">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Casual</h3>
+                    <div class="pricing-price">500₽<span>/час</span></div>
+                    <ul class="pricing-features">
+                        <li>Аренда 1 стола</li>
+                        <li>В будние дни до 18:00</li>
+                        <li>Бесплатные мячи</li>
+                        <li>Wi-Fi</li>
+                    </ul>
+                    <a href="#contact" class="btn">Забронировать</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Популярный</div>
+                    <h3 class="pricing-title">Вечерний</h3>
+                    <div class="pricing-price">700₽<span>/час</span></div>
+                    <ul class="pricing-features">
+                        <li>Аренда 1 стола</li>
+                        <li>Вечернее время 18:00-23:00</li>
+                        <li>Бесплатные мячи</li>
+                        <li>Wi-Fi</li>
+                        <li>Напитки со скидкой 10%</li>
+                    </ul>
+                    <a href="#contact" class="btn">Забронировать</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-title">VIP</h3>
+                    <div class="pricing-price">1200₽<span>/час</span></div>
+                    <ul class="pricing-features">
+                        <li>Аренда отдельной зоны</li>
+                        <li>3 стола</li>
+                        <li>Любое время</li>
+                        <li>Персональный тренер</li>
+                        <li>Напитки бесплатно</li>
+                    </ul>
+                    <a href="#contact" class="btn">Забронировать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Фотогалерея -->
     <section id="gallery">
         <div class="container">
             <h2 class="section-title reveal">Жизнь клуба</h2>
             <div class="gallery-grid reveal">
-                <div class="gallery-item v-span"><img src="images/gallery_1_1763661732981.png"
-                        alt="Динамичный момент игры в настольный футбол"></div>
-                <div class="gallery-item h-span"><img src="images/gallery_2_1763661742618.png"
-                        alt="Игроки во время турнира"></div>
-                <div class="gallery-item"><img src="images/gallery_3_1763661750148.png"
-                        alt="Крупный план мяча в воротах"></div>
-                <div class="gallery-item"><img src="images/gallery_4_1763661757071.png" alt="Командная игра в кикер">
+                <div class="gallery-item v-span"><img src="images/gallery_1_1763661732981.png" loading="lazy"
+                        alt="Динамичный момент игры в настольный футбол" class="gallery-img"></div>
+                <div class="gallery-item h-span"><img src="images/gallery_2_1763661742618.png" loading="lazy"
+                        alt="Игроки во время турнира" class="gallery-img"></div>
+                <div class="gallery-item"><img src="images/gallery_3_1763661750148.png" loading="lazy"
+                        alt="Крупный план мяча в воротах" class="gallery-img"></div>
+                <div class="gallery-item"><img src="images/gallery_4_1763661757071.png" loading="lazy"
+                        alt="Командная игра в кикер" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title reveal">Частые вопросы</h2>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Нужен ли опыт для посещения клуба?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Нет! Мы приглашаем игроков любого уровня. Для новичков проводим специальные обучающие сессии и
+                        турниры DYP, где вы сможете освоиться и найти партнеров.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли арендовать стол на несколько часов?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Да, конечно! Вы можете забронировать стол на любое удобное время. Есть почасовая аренда и
+                        специальные пакеты на длительное использование.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какое оборудование используется в клубе?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Мы используем только профессиональные столы мирового класса: Tornado (США) и Leonhart
+                        (Германия). Это официальное оборудование для международных турниров.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Проводите ли вы корпоративные мероприятия?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Да! Мы организуем корпоративные турниры, тимбилдинги и частные мероприятия. VIP-зона вмещает до
+                        30 человек. Свяжитесь с нами для обсуждения деталей.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Есть ли парковка?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Да, рядом с клубом есть бесплатная парковка. Также удобно добираться на метро — мы в 5 минутах
+                        пешком от станции.
+                    </div>
                 </div>
             </div>
         </div>
@@ -765,8 +1450,56 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Клуб настольного футбола «GoalPoint». Все права защищены.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>GoalPoint</h3>
+                    <p>Центр притяжения для всех любителей настольного футбола.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="VK">VK</a>
+                        <a href="#" class="social-icon" aria-label="Telegram">TG</a>
+                        <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-icon" aria-label="YouTube">YT</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Быстрые ссылки</h3>
+                    <p><a href="#about">О клубе</a></p>
+                    <p><a href="#tournaments">Турниры</a></p>
+                    <p><a href="#pricing">Тарифы</a></p>
+                    <p><a href="#faq">FAQ</a></p>
+                </div>
+                <div class="footer-col">
+                    <h3>Контакты</h3>
+                    <p>г. Москва, ул. Спортивная, д. 10</p>
+                    <p>+7 (999) 123-45-67</p>
+                    <p>info@goalpoint-club.ru</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 12:00 - 23:00</p>
+                    <p>Сб-Вс: 10:00 - 00:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Клуб настольного футбола «GoalPoint». Все права защищены.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop" title="Наверх">↑</div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightboxClose">×</span>
+            <img src="" alt="" id="lightboxImg">
+        </div>
+    </div>
 
     <!-- Скрипты -->
     <script>
@@ -811,6 +1544,148 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
+
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Lightbox for Gallery
+        const galleryImgs = document.querySelectorAll('.gallery-img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        galleryImgs.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+
+                // Close other open items
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== question && q.classList.contains('active')) {
+                        q.classList.remove('active');
+                        q.parentElement.querySelector('.faq-answer').classList.remove('show');
+                    }
+                });
+
+                // Toggle current item
+                question.classList.toggle('active');
+                answer.classList.toggle('show');
+            });
+        });
+
+        // Phone Number Formatting
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value[0] === '7' || value[0] === '8') {
+                        value = value.substring(1);
+                    }
+                    let formatted = '+7';
+                    if (value.length > 0) formatted += ' (' + value.substring(0, 3);
+                    if (value.length >= 3) formatted += ') ' + value.substring(3, 6);
+                    if (value.length >= 6) formatted += '-' + value.substring(6, 8);
+                    if (value.length >= 8) formatted += '-' + value.substring(8, 10);
+                    e.target.value = formatted;
+                }
+            });
+        }
+
+        // Animated Counters
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + '+';
+                }
+            };
+            updateCounter();
+        }
+
+        // Trigger counter animation when in view
+        const achievementNumbers = document.querySelectorAll('.achievement-number');
+        const animatedCounters = new Set();
+
+        function checkCounters() {
+            achievementNumbers.forEach(num => {
+                if (!animatedCounters.has(num)) {
+                    const rect = num.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        animateCounter(num);
+                        animatedCounters.add(num);
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkCounters);
+        // Check on page load too
+        checkCounters();
+
+        // Form Validation Enhancement
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+
+                if (name && phone) {
+                    alert(`Спасибо, ${name}! Ваша заявка отправлена. Мы свяжемся с вами по номеру ${phone}.`);
+                    form.reset();
+                } else {
+                    alert('Пожалуйста, заполните все поля');
+                }
+            });
+        }
     </script>
 </body>
 

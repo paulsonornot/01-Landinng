@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 50px;
+        }
+
+        .test-counter {
+            font-size: 48px;
+            color: green;
+        }
+
+        .faq-item {
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+
+        .faq-answer.show {
+            max-height: 200px;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Тест счетчика</h1>
+    <div class="test-counter" data-target="500">0</div>
+
+    <h1>Тест FAQ</h1>
+    <div class="faq-item">
+        <div class="faq-question">Вопрос 1?</div>
+        <div class="faq-answer">Ответ 1</div>
+    </div>
+
+    <script>
+        // Test counter
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + '+';
+                }
+            };
+            updateCounter();
+        }
+
+        // Run counter immediately
+        const counter = document.querySelector('.test-counter');
+        animateCounter(counter);
+
+        // Test FAQ
+        const faqQuestion = document.querySelector('.faq-question');
+        faqQuestion.addEventListener('click', () => {
+            const answer = faqQuestion.nextElementSibling;
+            answer.classList.toggle('show');
+            console.log('FAQ clicked, answer classes:', answer.className);
+        });
+    </script>
+</body>
+
+</html>
