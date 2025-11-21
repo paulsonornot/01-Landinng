@@ -28,6 +28,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Oswald:wght@400;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         /* --- ПЕРЕМЕННЫЕ И СБРОС --- */
         :root {
@@ -448,6 +449,7 @@
         /* --- ГАЛЕРЕЯ --- */
         #gallery {
             padding-bottom: 80px;
+            background-color: var(--light-grey);
         }
 
         .gallery-grid {
@@ -720,7 +722,7 @@
 
         /* --- ОТЗЫВЫ --- */
         #testimonials {
-            background-color: var(--light-grey);
+            background-color: var(--white);
         }
 
         .testimonials-container {
@@ -736,6 +738,18 @@
             box-shadow: var(--shadow-md);
             text-align: center;
             margin: 0 10px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .testimonial-avatar {
@@ -762,14 +776,25 @@
         }
 
         .testimonial-author {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
             font-weight: 700;
             color: var(--dark-grey);
-            margin-bottom: 5px;
+            width: 100%;
         }
 
         .testimonial-role {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
             color: var(--primary-green);
             font-size: 0.9rem;
+            width: 100%;
         }
 
         .stars {
@@ -799,6 +824,13 @@
             transition: var(--transition);
             border: 2px solid transparent;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pricing-card .btn {
+            margin-top: auto;
         }
 
         .pricing-card:hover {
@@ -870,7 +902,7 @@
 
         /* --- FAQ --- */
         #faq {
-            background-color: var(--light-grey);
+            background-color: var(--white);
         }
 
         .faq-container {
@@ -1228,33 +1260,44 @@
     <section id="testimonials">
         <div class="container">
             <h2 class="section-title reveal">Что говорят наши игроки</h2>
-            <div class="testimonials-container reveal">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">«GoalPoint — это не просто клуб, это второй дом! Здесь я научился
-                        играть, нашел друзей и теперь участвую в турнирах. Профессиональные столы Tornado просто огонь!»
-                    </p>
-                    <div class="testimonial-author">Алексей Петров</div>
-                    <div class="testimonial-role">Регулярный игрок</div>
+            <div class="swiper testimonials-swiper reveal">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">«GoalPoint — это не просто клуб, это второй дом! Здесь я
+                                научился
+                                играть, нашел друзей и теперь участвую в турнирах. Профессиональные столы Tornado просто
+                                огонь!»
+                            </p>
+                            <div class="testimonial-author">Алексей Петров</div>
+                            <div class="testimonial-role">Регулярный игрок</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">«Отличное место для корпоративов! Провели тимбилдинг для 25
+                                человек -
+                                все были в восторге. Организация на высшем уровне, VIP-зона супер комфортная!»</p>
+                            <div class="testimonial-author">Мария Иванова</div>
+                            <div class="testimonial-role">HR-менеджер</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">«Тренер Дмитрий - настоящий профи! За 2 месяца занятий моя игра
+                                вышла на
+                                новый уровень. Теперь выигрываю даже у опытных игроков. Спасибо GoalPoint!»</p>
+                            <div class="testimonial-author">Сергей Козлов</div>
+                            <div class="testimonial-role">Участник турниров</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="testimonials-container reveal" style="margin-top: 30px;">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">«Отличное место для корпоративов! Провели тимбилдинг для 25 человек -
-                        все были в восторге. Организация на высшем уровне, VIP-зона супер комфортная!»</p>
-                    <div class="testimonial-author">Мария Иванова</div>
-                    <div class="testimonial-role">HR-менеджер</div>
-                </div>
-            </div>
-            <div class="testimonials-container reveal" style="margin-top: 30px;">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">«Тренер Дмитрий - настоящий профи! За 2 месяца занятий моя игра вышла на
-                        новый уровень. Теперь выигрываю даже у опытных игроков. Спасибо GoalPoint!»</p>
-                    <div class="testimonial-author">Сергей Козлов</div>
-                    <div class="testimonial-role">Участник турниров</div>
-                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
@@ -1501,6 +1544,9 @@
         </div>
     </div>
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- Скрипты -->
     <script>
         const hamburger = document.querySelector(".hamburger");
@@ -1634,6 +1680,7 @@
         // Animated Counters
         function animateCounter(element) {
             const target = parseInt(element.getAttribute('data-target'));
+            const addPlus = target !== 12; // Don't add + for exact 12
             const duration = 2000; // 2 seconds
             const increment = target / (duration / 16); // 60fps
             let current = 0;
@@ -1641,10 +1688,10 @@
             const updateCounter = () => {
                 current += increment;
                 if (current < target) {
-                    element.textContent = Math.floor(current) + '+';
+                    element.textContent = Math.floor(current) + (addPlus ? '+' : '');
                     requestAnimationFrame(updateCounter);
                 } else {
-                    element.textContent = target + '+';
+                    element.textContent = target + (addPlus ? '+' : '');
                 }
             };
             updateCounter();
@@ -1686,6 +1733,31 @@
                 }
             });
         }
+
+        // Initialize Testimonials Swiper
+        const swiper = new Swiper('.testimonials-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
     </script>
 </body>
 
